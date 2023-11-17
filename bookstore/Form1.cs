@@ -22,6 +22,11 @@ namespace bookstore
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            ReadData();
+        }
+
+        private void ReadData()
+        {
             SQLiteConnection sqlConnection = new SQLiteConnection();
             sqlConnection.ConnectionString = "data source=books.db";
 
@@ -89,20 +94,96 @@ namespace bookstore
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //create a connection to the sql database
+            if (dgvbooks.SelectedRows.Count > 0)
+            {
+                selectedID = dgvbooks.SelectedRows[0].Cells[0].Value.ToString();
+                UpdateRecord();
+            }
+            else
+            {
+                InsertBook();
+            }
+        }
+
+        private void UpdateRecord()
+        {
             SQLiteConnection sqlConnection = new SQLiteConnection();
             sqlConnection.ConnectionString = "data source = books.db";
 
-            //create an sql command
-            SQLiteCommand sqlCommand = new SqlCommand();
+            //define select statement
+            SQLiteCommand sqlCommand = new SQLiteCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandType = CommandType.Text;
+            sqlCommand.CommandText = "UPDATE books SET title = @BookTitle, author = @BookAuthor, 'pub year' = @YearOfPublication, publisher = @Publisher, stock = @Stock, price = @Price WHERE isbn = @ISBN";
+            sqlCommand.Parameters.AddWithValue("@BookTitle", txtTitle.Text);
+            sqlCommand.Parameters.AddWithValue("@BookAuthor", txtAuthor.Text);
+            sqlCommand.Parameters.AddWithValue("@YearOfPublication", txtPubYear.Text);
+            sqlCommand.Parameters.AddWithValue("@Publisher", txtPublisher.Text);
+            sqlCommand.Parameters.AddWithValue("@Stock", txtStock.Text);
+            sqlCommand.Parameters.AddWithValue("@Price", txtPrice.Text);
+            sqlCommand.Parameters.AddWithValue("@ISBN", selectedID);
 
-            //set connection to
-            sqlCommand Connection = sqlConnection;
+            sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            MessageBox.Show("Your data is updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ReadData();
         }
 
-        private void btnRead_Click(object sender, EventArgs e)
+        private void InsertBook()
         {
+            //connect to the database
+            SQLiteConnection sqlConnection = new SQLiteConnection();
+            sqlConnection.ConnectionString = "data source = books.db";
 
+            //create sqlite command
+            SQLiteCommand sqlCommand = new SQLiteCommand();
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.CommandType = CommandType.Text;
+
+            //create sql statement
+            sqlCommand.Parameters.AddWithValue("@BookTitle", txtTitle.Text);
+            sqlCommand.Parameters.AddWithValue("@BookAuthor", txtAuthor.Text);
+            sqlCommand.Parameters.AddWithValue("@YearOfPublication", txtPubYear.Text);
+            sqlCommand.Parameters.AddWithValue("@Publisher", txtPublisher.Text);
+            sqlCommand.Parameters.AddWithValue("@Stock", txtStock.Text);
+            sqlCommand.Parameters.AddWithValue("@Price", txtPrice.Text);
+            sqlCommand.Parameters.AddWithValue("@ISBN", selectedID);
+            sqlCommand.CommandText = "INSERT into books (isbn, title, author, 'pub year', publisher, stock, price) Values (@ISBN, @BookTitle, @BookAuthor, @YearOfPublication, @PUblisher, @Stock, @Price";
+
+            sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            MessageBox.Show("Your data is saved", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ReadData();
+        }
+
+        private void btnDeleteBook_Click(object sender, EventArgs e)
+        {
+            if (dgvbooks.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    //connect to the database
+                    SQLiteConnection sqlConnection = new SQLiteConnection();
+                    sqlConnection.ConnectionString = "data source = books.db";
+
+                    //create sqlite command
+                    SQLiteCommand sqlCommand = new SQLiteCommand();
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "DELETE FROM books WHERE isbn = @ISBN";
+                    sqlCommand.Parameters.AddWithValue("@ISBN", selectedID);
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    MessageBox.Show("Book to be Deleted", "Deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                    ReadData();
+                }
+            }
         }
     }
 }
