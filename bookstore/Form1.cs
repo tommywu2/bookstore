@@ -49,7 +49,7 @@ namespace bookstore
             sqlConnection.Close();
 
             //place data from datatable and place into datagrid view on form
-            dgvbooks.DataSource = dataTable;
+            dgvBooks.DataSource = dataTable;
         }
 
         private void btnTitle_Click(object sender, EventArgs e)
@@ -57,11 +57,11 @@ namespace bookstore
             Form1_Load(sender, e);
         }
 
-        private void dgvbooks_SelectionChanged(object sender, EventArgs e)
+        private void dgvBooks_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvbooks.SelectedRows.Count>0)
+            if (dgvBooks.SelectedRows.Count>0)
             {
-                selectedID = dgvbooks.SelectedRows[0].Cells[0].Value.ToString();
+                selectedID = dgvBooks.SelectedRows[0].Cells[0].Value.ToString();
                 SQLiteConnection sqlConnection = new SQLiteConnection();
                 sqlConnection.ConnectionString = "data source = books.db";
                 //define a select statement
@@ -87,6 +87,7 @@ namespace bookstore
                 txtFiction.Text = dataTable.Rows[0]["Fiction"].ToString();
                 txtPages.Text = dataTable.Rows[0]["Pages"].ToString();
                 txtPrice.Text = dataTable.Rows[0]["Price"].ToString();
+                txtStock.Text = dataTable.Rows[0]["Stock"].ToString();
 
                 sqlConnection.Close();
             }
@@ -94,9 +95,9 @@ namespace bookstore
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (dgvbooks.SelectedRows.Count > 0)
+            if (dgvBooks.SelectedRows.Count > 0)
             {
-                selectedID = dgvbooks.SelectedRows[0].Cells[0].Value.ToString();
+                selectedID = dgvBooks.SelectedRows[0].Cells[0].Value.ToString();
                 UpdateRecord();
             }
             else
@@ -117,10 +118,14 @@ namespace bookstore
             sqlCommand.CommandText = "UPDATE books SET title = @BookTitle, author = @BookAuthor, 'pub year' = @YearOfPublication, publisher = @Publisher, stock = @Stock, price = @Price WHERE isbn = @ISBN";
             sqlCommand.Parameters.AddWithValue("@BookTitle", txtTitle.Text);
             sqlCommand.Parameters.AddWithValue("@BookAuthor", txtAuthor.Text);
+            sqlCommand.Parameters.AddWithValue("@BookGenre", txtGenre.Text);
+            sqlCommand.Parameters.AddWithValue("@BookCoverType", txtCoverType.Text);
             sqlCommand.Parameters.AddWithValue("@YearOfPublication", txtPubYear.Text);
             sqlCommand.Parameters.AddWithValue("@Publisher", txtPublisher.Text);
             sqlCommand.Parameters.AddWithValue("@Stock", txtStock.Text);
             sqlCommand.Parameters.AddWithValue("@Price", txtPrice.Text);
+            sqlCommand.Parameters.AddWithValue("@Pages", txtPages.Text);
+            sqlCommand.Parameters.AddWithValue("@Fiction", txtFiction.Text);
             sqlCommand.Parameters.AddWithValue("@ISBN", selectedID);
 
             sqlConnection.Open();
@@ -145,12 +150,16 @@ namespace bookstore
             //create sql statement
             sqlCommand.Parameters.AddWithValue("@BookTitle", txtTitle.Text);
             sqlCommand.Parameters.AddWithValue("@BookAuthor", txtAuthor.Text);
+            sqlCommand.Parameters.AddWithValue("@BookGenre", txtGenre.Text);
+            sqlCommand.Parameters.AddWithValue("@BookCoverType", txtCoverType.Text);
             sqlCommand.Parameters.AddWithValue("@YearOfPublication", txtPubYear.Text);
             sqlCommand.Parameters.AddWithValue("@Publisher", txtPublisher.Text);
             sqlCommand.Parameters.AddWithValue("@Stock", txtStock.Text);
             sqlCommand.Parameters.AddWithValue("@Price", txtPrice.Text);
+            sqlCommand.Parameters.AddWithValue("@Pages", txtPages.Text);
+            sqlCommand.Parameters.AddWithValue("@Fiction", txtFiction.Text);
             sqlCommand.Parameters.AddWithValue("@ISBN", selectedID);
-            sqlCommand.CommandText = "INSERT into books (isbn, title, author, 'pub year', publisher, stock, price) Values (@ISBN, @BookTitle, @BookAuthor, @YearOfPublication, @PUblisher, @Stock, @Price";
+            sqlCommand.CommandText = "INSERT into books (isbn, title, author, 'pub year', publisher, stock, price, fiction, pages, 'cover type', genre) Values (@ISBN, @BookTitle, @BookAuthor, @YearOfPublication, @PUblisher, @Stock, @Price, @Genre, @CoverType, @Pages, @Fiction";
 
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();
@@ -162,7 +171,7 @@ namespace bookstore
 
         private void btnDeleteBook_Click(object sender, EventArgs e)
         {
-            if (dgvbooks.SelectedRows.Count > 0)
+            if (dgvBooks.SelectedRows.Count > 0)
             {
                 if (MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
@@ -185,5 +194,54 @@ namespace bookstore
                 }
             }
         }
+
+        private void lblIsbn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAuthor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIsbn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPubYear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPublisher_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //connect to the database
+            SQLiteConnection sqlConnection = new SQLiteConnection();
+            sqlConnection.ConnectionString = "data source = books.db";
+
+            string commandText = "SELECT * FROM books WHERE " + cmbSearchCat.Text + " LIKE'%" + txtSearchVal.Text + "'";
+
+            var datatable = new DataTable();
+            SQLiteDataAdapter myDataAdapter = new SQLiteDataAdapter(commandText, sqlConnection);
+
+            sqlConnection.Open();
+
+            myDataAdapter.Fill(datatable);
+            sqlConnection.Close();
+
+            dgvBooks.DataSource = datatable;
+        }
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ReadData();
+        }
+
     }
 }
