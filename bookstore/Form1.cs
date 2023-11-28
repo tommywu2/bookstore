@@ -242,6 +242,47 @@ namespace bookstore
         {
             ReadData();
         }
+        private void btnAddBook_Click(object sender, EventArgs e)
+        {
+            using (Form3 addNewBook = new Form3())
+            {
+                if (addNewBook.ShowDialog() == DialogResult.OK)
+                {
+                    string ISBN = addNewBook.ISBN;
+                    string BookTitle = addNewBook.BookTitle;
+                    string BookAuthor = addNewBook.BookAuthor;
+                    string YearOfPublication = addNewBook.YearOfPublication;
+                    string Publisher = addNewBook.Publisher;
+                    string Stock = addNewBook.Stock;
+                    string Price = addNewBook.Price;
 
+                    //connect to the database
+                    SQLiteConnection sqlConnection = new SQLiteConnection();
+                    sqlConnection.ConnectionString = "data source = books.db";
+
+                    //create sqlite command
+                    SQLiteCommand sqlCommand = new SQLiteCommand();
+                    sqlCommand.Connection = sqlConnection;
+                    sqlCommand.CommandType = CommandType.Text;
+
+                    //create sql statement
+                    sqlCommand.Parameters.AddWithValue("@ISBN", ISBN);
+                    sqlCommand.Parameters.AddWithValue("@BookTitle", BookTitle);
+                    sqlCommand.Parameters.AddWithValue("@BookAuthor", BookAuthor);
+                    sqlCommand.Parameters.AddWithValue("@YearOfPublication", YearOfPublication);
+                    sqlCommand.Parameters.AddWithValue("@Publisher", Publisher);
+                    sqlCommand.Parameters.AddWithValue("@Stock", Stock);
+                    sqlCommand.Parameters.AddWithValue("@Price", Price);
+                    sqlCommand.CommandText = "INSERT into books (ISBN,BookTitle,BookAuthor,YearOfPublication,Publisher,Stock,Price) Values (@ISBN,@BookTitle,@BookAuthor,@YearOfPublication,@Publisher,@Stock,@Price)";
+
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                    MessageBox.Show("Your data is saved", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    ReadData();
+                }
+            }
+        }
     }
 }

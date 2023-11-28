@@ -43,6 +43,9 @@ namespace bookstore
             Price = txtPrice.Text;
             Pages = txtPages.Text;
             Fiction = txtFiction.Text;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
