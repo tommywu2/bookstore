@@ -226,7 +226,7 @@ namespace bookstore
             SQLiteConnection sqlConnection = new SQLiteConnection();
             sqlConnection.ConnectionString = "data source = books.db";
 
-            string commandText = "SELECT * FROM books WHERE " + cmbSearchCat.Text + " LIKE'%" + txtSearchVal.Text + "'";
+            string commandText = "SELECT * FROM books WHERE " + comboBoxSearchCategory.Text + " LIKE'%" + txtSearchValue.Text + "'";
 
             var datatable = new DataTable();
             SQLiteDataAdapter myDataAdapter = new SQLiteDataAdapter(commandText, sqlConnection);
