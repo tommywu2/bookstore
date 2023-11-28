@@ -64,6 +64,7 @@
             this.lblBookInfo = new System.Windows.Forms.Label();
             this.comboBoxSearchCategory = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -434,12 +435,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // btnAddBook
+            // 
+            this.btnAddBook.BackColor = System.Drawing.Color.LightCoral;
+            this.btnAddBook.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBook.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAddBook.Location = new System.Drawing.Point(124, 197);
+            this.btnAddBook.Name = "btnAddBook";
+            this.btnAddBook.Size = new System.Drawing.Size(100, 50);
+            this.btnAddBook.TabIndex = 46;
+            this.btnAddBook.Text = "Add Book";
+            this.btnAddBook.UseVisualStyleBackColor = false;
+            // 
             // books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(784, 511);
+            this.Controls.Add(this.btnAddBook);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblBookInfo);
             this.Controls.Add(this.lblStock);
@@ -520,6 +534,7 @@
         private System.Windows.Forms.Label lblBookInfo;
         private System.Windows.Forms.ComboBox comboBoxSearchCategory;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnAddBook;
     }
 }
 
