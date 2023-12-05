@@ -1,6 +1,6 @@
 ﻿namespace bookstore
 {
-    partial class books
+    partial class Books
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(books));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Books));
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.txtIsbn = new System.Windows.Forms.TextBox();
             this.lblIsbn = new System.Windows.Forms.Label();
@@ -86,7 +86,6 @@
             this.txtIsbn.Name = "txtIsbn";
             this.txtIsbn.Size = new System.Drawing.Size(100, 23);
             this.txtIsbn.TabIndex = 1;
-            this.txtIsbn.TextChanged += new System.EventHandler(this.txtIsbn_TextChanged);
             // 
             // lblIsbn
             // 
@@ -97,7 +96,6 @@
             this.lblIsbn.Size = new System.Drawing.Size(35, 15);
             this.lblIsbn.TabIndex = 2;
             this.lblIsbn.Text = "ISBN";
-            this.lblIsbn.Click += new System.EventHandler(this.lblIsbn_Click);
             // 
             // lblTitle
             // 
@@ -127,7 +125,6 @@
             this.lblAuthor.Size = new System.Drawing.Size(49, 15);
             this.lblAuthor.TabIndex = 6;
             this.lblAuthor.Text = "Author";
-            this.lblAuthor.Click += new System.EventHandler(this.lblAuthor_Click);
             // 
             // txtAuthor
             // 
@@ -175,7 +172,6 @@
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.Size = new System.Drawing.Size(100, 23);
             this.txtPublisher.TabIndex = 9;
-            this.txtPublisher.TextChanged += new System.EventHandler(this.txtPublisher_TextChanged);
             // 
             // lblPubYear
             // 
@@ -186,7 +182,6 @@
             this.lblPubYear.Size = new System.Drawing.Size(63, 15);
             this.lblPubYear.TabIndex = 8;
             this.lblPubYear.Text = "Pub Year";
-            this.lblPubYear.Click += new System.EventHandler(this.lblPubYear_Click);
             // 
             // txtPubYear
             // 
@@ -446,6 +441,7 @@
             this.btnAddBook.TabIndex = 46;
             this.btnAddBook.Text = "Add Book";
             this.btnAddBook.UseVisualStyleBackColor = false;
+            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
             // books
             // 

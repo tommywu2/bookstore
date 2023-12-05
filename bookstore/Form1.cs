@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace bookstore
 {
-    public partial class books : Form
+    public partial class Books : Form
     {
         string selectedID;
-        public books()
+        public Books()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace bookstore
         private void ReadData()
         {
             SQLiteConnection sqlConnection = new SQLiteConnection();
-            sqlConnection.ConnectionString = "data source=books.db";
+            sqlConnection.ConnectionString = "data source = books.db";
 
             //define the SELECT statement
             string commandText = "SELECT * FROM books";
@@ -80,10 +80,10 @@ namespace bookstore
                 txtIsbn.Text = dataTable.Rows[0]["ISBN"].ToString();
                 txtTitle.Text = dataTable.Rows[0]["Title"].ToString();
                 txtAuthor.Text = dataTable.Rows[0]["Author"].ToString();
-                txtPubYear.Text = dataTable.Rows[0]["Pub Year"].ToString();
+                txtPubYear.Text = dataTable.Rows[0]["PubYear"].ToString();
                 txtPublisher.Text = dataTable.Rows[0]["Publisher"].ToString();
                 txtGenre.Text = dataTable.Rows[0]["Genre"].ToString();
-                txtCoverType.Text = dataTable.Rows[0]["Cover Type"].ToString();
+                txtCoverType.Text = dataTable.Rows[0]["CoverType"].ToString();
                 txtFiction.Text = dataTable.Rows[0]["Fiction"].ToString();
                 txtPages.Text = dataTable.Rows[0]["Pages"].ToString();
                 txtPrice.Text = dataTable.Rows[0]["Price"].ToString();
@@ -115,17 +115,17 @@ namespace bookstore
             SQLiteCommand sqlCommand = new SQLiteCommand();
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandType = CommandType.Text;
-            sqlCommand.CommandText = "UPDATE books SET title = @BookTitle, author = @BookAuthor, 'pub year' = @YearOfPublication, publisher = @Publisher, stock = @Stock, price = @Price WHERE isbn = @ISBN";
+            sqlCommand.CommandText = "UPDATE books SET title = @BookTitle, author = @BookAuthor, 'pub year' = @YearOfPublication, publisher = @Publisher, genre = @BookGenre, 'cover type' = @BookCoverType, fiction = @Fiction, stock = @Stock, pages = @Pages, price = @Price, stock = @Stock WHERE isbn = @ISBN";
             sqlCommand.Parameters.AddWithValue("@BookTitle", txtTitle.Text);
             sqlCommand.Parameters.AddWithValue("@BookAuthor", txtAuthor.Text);
-            sqlCommand.Parameters.AddWithValue("@BookGenre", txtGenre.Text);
-            sqlCommand.Parameters.AddWithValue("@BookCoverType", txtCoverType.Text);
             sqlCommand.Parameters.AddWithValue("@YearOfPublication", txtPubYear.Text);
             sqlCommand.Parameters.AddWithValue("@Publisher", txtPublisher.Text);
-            sqlCommand.Parameters.AddWithValue("@Stock", txtStock.Text);
-            sqlCommand.Parameters.AddWithValue("@Price", txtPrice.Text);
-            sqlCommand.Parameters.AddWithValue("@Pages", txtPages.Text);
+            sqlCommand.Parameters.AddWithValue("@BookGenre", txtGenre.Text);
+            sqlCommand.Parameters.AddWithValue("@BookCoverType", txtCoverType.Text);
             sqlCommand.Parameters.AddWithValue("@Fiction", txtFiction.Text);
+            sqlCommand.Parameters.AddWithValue("@Pages", txtPages.Text);
+            sqlCommand.Parameters.AddWithValue("@Price", txtPrice.Text);
+            sqlCommand.Parameters.AddWithValue("@Stock", txtStock.Text);
             sqlCommand.Parameters.AddWithValue("@ISBN", selectedID);
 
             sqlConnection.Open();
@@ -148,18 +148,18 @@ namespace bookstore
             sqlCommand.CommandType = CommandType.Text;
 
             //create sql statement
-            sqlCommand.Parameters.AddWithValue("@BookTitle", txtTitle.Text);
-            sqlCommand.Parameters.AddWithValue("@BookAuthor", txtAuthor.Text);
-            sqlCommand.Parameters.AddWithValue("@BookGenre", txtGenre.Text);
-            sqlCommand.Parameters.AddWithValue("@BookCoverType", txtCoverType.Text);
-            sqlCommand.Parameters.AddWithValue("@YearOfPublication", txtPubYear.Text);
+            sqlCommand.Parameters.AddWithValue("@Title", txtTitle.Text);
+            sqlCommand.Parameters.AddWithValue("@Author", txtAuthor.Text);
+            sqlCommand.Parameters.AddWithValue("@Genre", txtGenre.Text);
+            sqlCommand.Parameters.AddWithValue("@CoverType", txtCoverType.Text);
+            sqlCommand.Parameters.AddWithValue("@PubYear", txtPubYear.Text);
             sqlCommand.Parameters.AddWithValue("@Publisher", txtPublisher.Text);
             sqlCommand.Parameters.AddWithValue("@Stock", txtStock.Text);
             sqlCommand.Parameters.AddWithValue("@Price", txtPrice.Text);
             sqlCommand.Parameters.AddWithValue("@Pages", txtPages.Text);
             sqlCommand.Parameters.AddWithValue("@Fiction", txtFiction.Text);
             sqlCommand.Parameters.AddWithValue("@ISBN", selectedID);
-            sqlCommand.CommandText = "INSERT into books (isbn, title, author, 'pub year', publisher, stock, price, fiction, pages, 'cover type', genre) Values (@ISBN, @BookTitle, @BookAuthor, @YearOfPublication, @PUblisher, @Stock, @Price, @Genre, @CoverType, @Pages, @Fiction";
+            sqlCommand.CommandText = "INSERT into books (isbn, title, author, 'pub year', publisher, stock, price, fiction, pages, 'cover type', genre) Values (@ISBN, @Title, @Author, @PubYear, @Publisher, @Stock, @Price, @Genre, @Book, @CoverType, @Pages, @Fiction";
 
             sqlConnection.Open();
             sqlCommand.ExecuteNonQuery();
@@ -195,31 +195,6 @@ namespace bookstore
             }
         }
 
-        private void lblIsbn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblAuthor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtIsbn_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblPubYear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPublisher_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //connect to the database
@@ -244,17 +219,21 @@ namespace bookstore
         }
         private void btnAddBook_Click(object sender, EventArgs e)
         {
-            using (Form3 addNewBook = new Form3())
+            using (AddBook addBook = new AddBook())
             {
-                if (addNewBook.ShowDialog() == DialogResult.OK)
+                if (addBook.ShowDialog() == DialogResult.OK)
                 {
-                    string ISBN = addNewBook.ISBN;
-                    string BookTitle = addNewBook.BookTitle;
-                    string BookAuthor = addNewBook.BookAuthor;
-                    string YearOfPublication = addNewBook.YearOfPublication;
-                    string Publisher = addNewBook.Publisher;
-                    string Stock = addNewBook.Stock;
-                    string Price = addNewBook.Price;
+                    string ISBN = addBook.ISBN;
+                    string BookTitle = addBook.Title;
+                    string BookAuthor = addBook.Author;
+                    string BookGenre = addBook.Genre;
+                    string BookCoverType = addBook.CoverType;
+                    string YearOfPublication = addBook.PubYear;
+                    string Publisher = addBook.Publisher;
+                    string Stock = addBook.Stock;
+                    string Price = addBook.Price;
+                    string Pages = addBook.Pages;
+                    string Fiction = addBook.Fiction;
 
                     //connect to the database
                     SQLiteConnection sqlConnection = new SQLiteConnection();
@@ -265,16 +244,20 @@ namespace bookstore
                     sqlCommand.Connection = sqlConnection;
                     sqlCommand.CommandType = CommandType.Text;
 
-                    //create sql statement
+                    sqlCommand.CommandText = "INSERT into books (isbn, title, author, 'pub year', publisher, stock, price, fiction, pages, 'cover type', genre) Values (@ISBN, @Title, @Author, @PubYear, @Publisher, @Stock, @Price, @Genre, @CoverType, @Pages, @Fiction";
                     sqlCommand.Parameters.AddWithValue("@ISBN", ISBN);
-                    sqlCommand.Parameters.AddWithValue("@BookTitle", BookTitle);
-                    sqlCommand.Parameters.AddWithValue("@BookAuthor", BookAuthor);
-                    sqlCommand.Parameters.AddWithValue("@YearOfPublication", YearOfPublication);
-                    sqlCommand.Parameters.AddWithValue("@Publisher", Publisher);
+                    sqlCommand.Parameters.AddWithValue("@Title", Title);
+                    sqlCommand.Parameters.AddWithValue("@Author", Author);
+                    sqlCommand.Parameters.AddWithValue("@Genre", Genre);
+                    sqlCommand.Parameters.AddWithValue("@CoverType", CoverType);
+                    sqlCommand.Parameters.AddWithValue("@PubYear", PubYear);
+                    sqlCommand.Parameters.AddWithValue("@Publisher",Publisher);
                     sqlCommand.Parameters.AddWithValue("@Stock", Stock);
                     sqlCommand.Parameters.AddWithValue("@Price", Price);
-                    sqlCommand.CommandText = "INSERT into books (ISBN,BookTitle,BookAuthor,YearOfPublication,Publisher,Stock,Price) Values (@ISBN,@BookTitle,@BookAuthor,@YearOfPublication,@Publisher,@Stock,@Price)";
-
+                    sqlCommand.Parameters.AddWithValue("@Pages", Pages);
+                    sqlCommand.Parameters.AddWithValue("@Fiction", Fiction);
+                    
+                    
                     sqlConnection.Open();
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
@@ -284,5 +267,7 @@ namespace bookstore
                 }
             }
         }
+
+
     }
 }

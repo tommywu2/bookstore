@@ -1,6 +1,6 @@
 ﻿namespace bookstore
 {
-    partial class Form3
+    partial class AddBook
     {
         /// <summary>
         /// Required designer variable.
@@ -51,17 +51,6 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblIsbn = new System.Windows.Forms.Label();
             this.txtIsbn = new System.Windows.Forms.TextBox();
-            this.btnIsbn = new System.Windows.Forms.Button();
-            this.btnTitle = new System.Windows.Forms.Button();
-            this.btnAuthor = new System.Windows.Forms.Button();
-            this.btnPubYear = new System.Windows.Forms.Button();
-            this.btnPub = new System.Windows.Forms.Button();
-            this.btnGenre = new System.Windows.Forms.Button();
-            this.btnCoverType = new System.Windows.Forms.Button();
-            this.btnFiction = new System.Windows.Forms.Button();
-            this.btnPages = new System.Windows.Forms.Button();
-            this.btnPrice = new System.Windows.Forms.Button();
-            this.btnStock = new System.Windows.Forms.Button();
             this.btnAddBook = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
             this.SuspendLayout();
@@ -275,145 +264,25 @@
             this.txtIsbn.Size = new System.Drawing.Size(100, 23);
             this.txtIsbn.TabIndex = 36;
             // 
-            // btnIsbn
-            // 
-            this.btnIsbn.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIsbn.Location = new System.Drawing.Point(118, 27);
-            this.btnIsbn.Name = "btnIsbn";
-            this.btnIsbn.Size = new System.Drawing.Size(75, 23);
-            this.btnIsbn.TabIndex = 58;
-            this.btnIsbn.Text = "ISBN";
-            this.btnIsbn.UseVisualStyleBackColor = true;
-            // 
-            // btnTitle
-            // 
-            this.btnTitle.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTitle.Location = new System.Drawing.Point(118, 71);
-            this.btnTitle.Name = "btnTitle";
-            this.btnTitle.Size = new System.Drawing.Size(75, 23);
-            this.btnTitle.TabIndex = 59;
-            this.btnTitle.Text = "Title";
-            this.btnTitle.UseVisualStyleBackColor = true;
-            // 
-            // btnAuthor
-            // 
-            this.btnAuthor.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuthor.Location = new System.Drawing.Point(118, 115);
-            this.btnAuthor.Name = "btnAuthor";
-            this.btnAuthor.Size = new System.Drawing.Size(75, 23);
-            this.btnAuthor.TabIndex = 60;
-            this.btnAuthor.Text = "Author";
-            this.btnAuthor.UseVisualStyleBackColor = true;
-            // 
-            // btnPubYear
-            // 
-            this.btnPubYear.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPubYear.Location = new System.Drawing.Point(118, 159);
-            this.btnPubYear.Name = "btnPubYear";
-            this.btnPubYear.Size = new System.Drawing.Size(75, 23);
-            this.btnPubYear.TabIndex = 61;
-            this.btnPubYear.Text = "Pub Year";
-            this.btnPubYear.UseVisualStyleBackColor = true;
-            // 
-            // btnPub
-            // 
-            this.btnPub.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPub.Location = new System.Drawing.Point(118, 203);
-            this.btnPub.Name = "btnPub";
-            this.btnPub.Size = new System.Drawing.Size(75, 23);
-            this.btnPub.TabIndex = 63;
-            this.btnPub.Text = "Publisher";
-            this.btnPub.UseVisualStyleBackColor = true;
-            // 
-            // btnGenre
-            // 
-            this.btnGenre.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenre.Location = new System.Drawing.Point(118, 247);
-            this.btnGenre.Name = "btnGenre";
-            this.btnGenre.Size = new System.Drawing.Size(75, 23);
-            this.btnGenre.TabIndex = 64;
-            this.btnGenre.Text = "Genre";
-            this.btnGenre.UseVisualStyleBackColor = true;
-            // 
-            // btnCoverType
-            // 
-            this.btnCoverType.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCoverType.Location = new System.Drawing.Point(118, 291);
-            this.btnCoverType.Name = "btnCoverType";
-            this.btnCoverType.Size = new System.Drawing.Size(75, 23);
-            this.btnCoverType.TabIndex = 65;
-            this.btnCoverType.Text = "Cover Type";
-            this.btnCoverType.UseVisualStyleBackColor = true;
-            // 
-            // btnFiction
-            // 
-            this.btnFiction.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiction.Location = new System.Drawing.Point(118, 335);
-            this.btnFiction.Name = "btnFiction";
-            this.btnFiction.Size = new System.Drawing.Size(75, 23);
-            this.btnFiction.TabIndex = 66;
-            this.btnFiction.Text = "Fiction";
-            this.btnFiction.UseVisualStyleBackColor = true;
-            // 
-            // btnPages
-            // 
-            this.btnPages.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPages.Location = new System.Drawing.Point(118, 379);
-            this.btnPages.Name = "btnPages";
-            this.btnPages.Size = new System.Drawing.Size(75, 23);
-            this.btnPages.TabIndex = 67;
-            this.btnPages.Text = "Pages";
-            this.btnPages.UseVisualStyleBackColor = true;
-            // 
-            // btnPrice
-            // 
-            this.btnPrice.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrice.Location = new System.Drawing.Point(118, 423);
-            this.btnPrice.Name = "btnPrice";
-            this.btnPrice.Size = new System.Drawing.Size(75, 23);
-            this.btnPrice.TabIndex = 68;
-            this.btnPrice.Text = "Price";
-            this.btnPrice.UseVisualStyleBackColor = true;
-            // 
-            // btnStock
-            // 
-            this.btnStock.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStock.Location = new System.Drawing.Point(118, 464);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(75, 23);
-            this.btnStock.TabIndex = 69;
-            this.btnStock.Text = "Stock";
-            this.btnStock.UseVisualStyleBackColor = true;
-            // 
             // btnAddBook
             // 
             this.btnAddBook.BackColor = System.Drawing.Color.LightCoral;
             this.btnAddBook.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddBook.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnAddBook.Location = new System.Drawing.Point(199, 27);
+            this.btnAddBook.Location = new System.Drawing.Point(12, 493);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(100, 50);
             this.btnAddBook.TabIndex = 70;
             this.btnAddBook.Text = "Add Book";
             this.btnAddBook.UseVisualStyleBackColor = false;
+            this.btnAddBook.Click += new System.EventHandler(this.btnAddBook_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 511);
+            this.ClientSize = new System.Drawing.Size(124, 561);
             this.Controls.Add(this.btnAddBook);
-            this.Controls.Add(this.btnStock);
-            this.Controls.Add(this.btnPrice);
-            this.Controls.Add(this.btnPages);
-            this.Controls.Add(this.btnFiction);
-            this.Controls.Add(this.btnCoverType);
-            this.Controls.Add(this.btnGenre);
-            this.Controls.Add(this.btnPub);
-            this.Controls.Add(this.btnPubYear);
-            this.Controls.Add(this.btnAuthor);
-            this.Controls.Add(this.btnTitle);
-            this.Controls.Add(this.btnIsbn);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.lblPrice);
@@ -436,7 +305,7 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblIsbn);
             this.Controls.Add(this.txtIsbn);
-            this.Name = "Form3";
+            this.Name = "AddBook";
             this.Text = "Add Book";
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
             this.ResumeLayout(false);
@@ -469,17 +338,6 @@
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Label lblIsbn;
         private System.Windows.Forms.TextBox txtIsbn;
-        private System.Windows.Forms.Button btnIsbn;
-        private System.Windows.Forms.Button btnTitle;
-        private System.Windows.Forms.Button btnAuthor;
-        private System.Windows.Forms.Button btnPubYear;
-        private System.Windows.Forms.Button btnPub;
-        private System.Windows.Forms.Button btnGenre;
-        private System.Windows.Forms.Button btnCoverType;
-        private System.Windows.Forms.Button btnFiction;
-        private System.Windows.Forms.Button btnPages;
-        private System.Windows.Forms.Button btnPrice;
-        private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnAddBook;
     }
 }

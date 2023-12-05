@@ -11,33 +11,34 @@ using System.Windows.Forms;
 
 namespace bookstore
 {
-    public partial class Form3 : Form
+    public partial class AddBook : Form
     {
         public string ISBN { get; set; }
-        public string BookTitle { get; set; }
-        public string BookAuthor { get; set; }
-        public string YearOfPublication { get; set; }
-        public string BookGenre { get; set; }
-        public string BookCoverType { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string PubYear { get; set; }
+        public string Genre { get; set; }
+        public string CoverType { get; set; }
         public string Publisher { get; set; }
         public string Stock { get; set; }
         public string Price { get; set; }
         public string Pages { get; set; }
         public string Fiction { get; set; }
 
-        public Form3()
+        public AddBook()
         {
             InitializeComponent();
         }
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
+
             ISBN = txtIsbn.Text;
-            BookTitle = txtTitle.Text;
-            BookAuthor = txtAuthor.Text;
-            YearOfPublication = txtPubYear.Text;
-            BookGenre = txtGenre.Text;
-            BookCoverType = txtCoverType.Text;
+            Title = txtTitle.Text;
+            Author = txtAuthor.Text;
+            PubYear = txtPubYear.Text;
+            Genre = txtGenre.Text;
+            CoverType = txtCoverType.Text;
             Publisher = txtPublisher.Text;
             Stock = txtStock.Text;
             Price = txtPrice.Text;
@@ -46,6 +47,7 @@ namespace bookstore
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+
         }
     }
 }

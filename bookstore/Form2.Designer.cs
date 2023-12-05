@@ -1,6 +1,6 @@
 ﻿namespace bookstore
 {
-    partial class Members
+    partial class members
     {
         /// <summary>
         /// Required designer variable.
@@ -28,54 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Members));
-            this.dgvmembers = new System.Windows.Forms.DataGridView();
-            this.btnguid = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(members));
+            this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.lblguid = new System.Windows.Forms.Label();
             this.txtGuid = new System.Windows.Forms.TextBox();
-            this.btnname = new System.Windows.Forms.Button();
             this.lblname = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.btnphone = new System.Windows.Forms.Button();
             this.lblphone = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.btnemail = new System.Windows.Forms.Button();
             this.lblemail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.btnaddress = new System.Windows.Forms.Button();
             this.lbladdress = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.btnzip = new System.Windows.Forms.Button();
             this.lblzip = new System.Windows.Forms.Label();
             this.txtZip = new System.Windows.Forms.TextBox();
-            this.btnregion = new System.Windows.Forms.Button();
             this.lblregion = new System.Windows.Forms.Label();
             this.txtRegion = new System.Windows.Forms.TextBox();
-            this.btncountry = new System.Windows.Forms.Button();
             this.lblcountry = new System.Windows.Forms.Label();
             this.txtCountry = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvmembers)).BeginInit();
+            this.btnAddMember = new System.Windows.Forms.Button();
+            this.btnDeleteMember = new System.Windows.Forms.Button();
+            this.btnRead = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvmembers
+            // dgvMembers
             // 
-            this.dgvmembers.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvmembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvmembers.Location = new System.Drawing.Point(198, 12);
-            this.dgvmembers.Name = "dgvmembers";
-            this.dgvmembers.Size = new System.Drawing.Size(590, 428);
-            this.dgvmembers.TabIndex = 1;
-            this.dgvmembers.SelectionChanged += new System.EventHandler(this.dgvmembers_SelectionChanged);
-            // 
-            // btnguid
-            // 
-            this.btnguid.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguid.Location = new System.Drawing.Point(117, 29);
-            this.btnguid.Name = "btnguid";
-            this.btnguid.Size = new System.Drawing.Size(75, 23);
-            this.btnguid.TabIndex = 24;
-            this.btnguid.Text = "GUID";
-            this.btnguid.UseVisualStyleBackColor = true;
+            this.dgvMembers.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvMembers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMembers.Location = new System.Drawing.Point(223, 12);
+            this.dgvMembers.Name = "dgvMembers";
+            this.dgvMembers.Size = new System.Drawing.Size(565, 428);
+            this.dgvMembers.TabIndex = 1;
+            this.dgvMembers.SelectionChanged += new System.EventHandler(this.dgvmembers_SelectionChanged);
             // 
             // lblguid
             // 
@@ -96,17 +82,6 @@
             this.txtGuid.Size = new System.Drawing.Size(100, 23);
             this.txtGuid.TabIndex = 22;
             // 
-            // btnname
-            // 
-            this.btnname.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnname.Location = new System.Drawing.Point(117, 73);
-            this.btnname.Name = "btnname";
-            this.btnname.Size = new System.Drawing.Size(75, 23);
-            this.btnname.TabIndex = 27;
-            this.btnname.Text = "Name";
-            this.btnname.UseVisualStyleBackColor = true;
-            this.btnname.Click += new System.EventHandler(this.btnname_Click);
-            // 
             // lblname
             // 
             this.lblname.AutoSize = true;
@@ -125,16 +100,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 23);
             this.txtName.TabIndex = 25;
-            // 
-            // btnphone
-            // 
-            this.btnphone.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnphone.Location = new System.Drawing.Point(117, 117);
-            this.btnphone.Name = "btnphone";
-            this.btnphone.Size = new System.Drawing.Size(75, 23);
-            this.btnphone.TabIndex = 30;
-            this.btnphone.Text = "Phone";
-            this.btnphone.UseVisualStyleBackColor = true;
             // 
             // lblphone
             // 
@@ -155,16 +120,6 @@
             this.txtPhone.Size = new System.Drawing.Size(100, 23);
             this.txtPhone.TabIndex = 28;
             // 
-            // btnemail
-            // 
-            this.btnemail.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnemail.Location = new System.Drawing.Point(117, 161);
-            this.btnemail.Name = "btnemail";
-            this.btnemail.Size = new System.Drawing.Size(75, 23);
-            this.btnemail.TabIndex = 33;
-            this.btnemail.Text = "Email";
-            this.btnemail.UseVisualStyleBackColor = true;
-            // 
             // lblemail
             // 
             this.lblemail.AutoSize = true;
@@ -183,16 +138,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 23);
             this.txtEmail.TabIndex = 31;
-            // 
-            // btnaddress
-            // 
-            this.btnaddress.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaddress.Location = new System.Drawing.Point(117, 205);
-            this.btnaddress.Name = "btnaddress";
-            this.btnaddress.Size = new System.Drawing.Size(75, 23);
-            this.btnaddress.TabIndex = 36;
-            this.btnaddress.Text = "Address";
-            this.btnaddress.UseVisualStyleBackColor = true;
             // 
             // lbladdress
             // 
@@ -213,16 +158,6 @@
             this.txtAddress.Size = new System.Drawing.Size(100, 23);
             this.txtAddress.TabIndex = 34;
             // 
-            // btnzip
-            // 
-            this.btnzip.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnzip.Location = new System.Drawing.Point(117, 249);
-            this.btnzip.Name = "btnzip";
-            this.btnzip.Size = new System.Drawing.Size(75, 23);
-            this.btnzip.TabIndex = 39;
-            this.btnzip.Text = "Postal/Zip";
-            this.btnzip.UseVisualStyleBackColor = true;
-            // 
             // lblzip
             // 
             this.lblzip.AutoSize = true;
@@ -241,16 +176,6 @@
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(100, 23);
             this.txtZip.TabIndex = 37;
-            // 
-            // btnregion
-            // 
-            this.btnregion.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnregion.Location = new System.Drawing.Point(117, 293);
-            this.btnregion.Name = "btnregion";
-            this.btnregion.Size = new System.Drawing.Size(75, 23);
-            this.btnregion.TabIndex = 42;
-            this.btnregion.Text = "Region";
-            this.btnregion.UseVisualStyleBackColor = true;
             // 
             // lblregion
             // 
@@ -271,16 +196,6 @@
             this.txtRegion.Size = new System.Drawing.Size(100, 23);
             this.txtRegion.TabIndex = 40;
             // 
-            // btncountry
-            // 
-            this.btncountry.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncountry.Location = new System.Drawing.Point(117, 337);
-            this.btncountry.Name = "btncountry";
-            this.btncountry.Size = new System.Drawing.Size(75, 23);
-            this.btncountry.TabIndex = 45;
-            this.btncountry.Text = "Country";
-            this.btncountry.UseVisualStyleBackColor = true;
-            // 
             // lblcountry
             // 
             this.lblcountry.AutoSize = true;
@@ -300,43 +215,91 @@
             this.txtCountry.Size = new System.Drawing.Size(100, 23);
             this.txtCountry.TabIndex = 43;
             // 
-            // Members
+            // btnAddMember
+            // 
+            this.btnAddMember.BackColor = System.Drawing.Color.LightCoral;
+            this.btnAddMember.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddMember.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAddMember.Location = new System.Drawing.Point(117, 182);
+            this.btnAddMember.Name = "btnAddMember";
+            this.btnAddMember.Size = new System.Drawing.Size(100, 50);
+            this.btnAddMember.TabIndex = 50;
+            this.btnAddMember.Text = "Add Member";
+            this.btnAddMember.UseVisualStyleBackColor = false;
+            this.btnAddMember.Click += new System.EventHandler(this.btnAddBook_Click);
+            // 
+            // btnDeleteMember
+            // 
+            this.btnDeleteMember.BackColor = System.Drawing.Color.LightCoral;
+            this.btnDeleteMember.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteMember.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteMember.Location = new System.Drawing.Point(117, 124);
+            this.btnDeleteMember.Name = "btnDeleteMember";
+            this.btnDeleteMember.Size = new System.Drawing.Size(100, 50);
+            this.btnDeleteMember.TabIndex = 49;
+            this.btnDeleteMember.Text = "Delete Member";
+            this.btnDeleteMember.UseVisualStyleBackColor = false;
+            this.btnDeleteMember.Click += new System.EventHandler(this.btnDeleteMember_Click);
+            // 
+            // btnRead
+            // 
+            this.btnRead.BackColor = System.Drawing.Color.LightCoral;
+            this.btnRead.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRead.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnRead.Location = new System.Drawing.Point(117, 12);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(100, 50);
+            this.btnRead.TabIndex = 48;
+            this.btnRead.Text = "Read";
+            this.btnRead.UseVisualStyleBackColor = false;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.LightCoral;
+            this.btnSave.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnSave.Location = new System.Drawing.Point(117, 68);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(100, 50);
+            this.btnSave.TabIndex = 47;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // members
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btncountry);
+            this.Controls.Add(this.btnAddMember);
+            this.Controls.Add(this.btnDeleteMember);
+            this.Controls.Add(this.btnRead);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblcountry);
             this.Controls.Add(this.txtCountry);
-            this.Controls.Add(this.btnregion);
             this.Controls.Add(this.lblregion);
             this.Controls.Add(this.txtRegion);
-            this.Controls.Add(this.btnzip);
             this.Controls.Add(this.lblzip);
             this.Controls.Add(this.txtZip);
-            this.Controls.Add(this.btnaddress);
             this.Controls.Add(this.lbladdress);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.btnemail);
             this.Controls.Add(this.lblemail);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.btnphone);
             this.Controls.Add(this.lblphone);
             this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.btnname);
             this.Controls.Add(this.lblname);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.btnguid);
             this.Controls.Add(this.lblguid);
             this.Controls.Add(this.txtGuid);
-            this.Controls.Add(this.dgvmembers);
+            this.Controls.Add(this.dgvMembers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Members";
+            this.Name = "members";
             this.Text = "Members";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvmembers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,30 +307,26 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvmembers;
-        private System.Windows.Forms.Button btnguid;
+        private System.Windows.Forms.DataGridView dgvMembers;
         private System.Windows.Forms.Label lblguid;
         private System.Windows.Forms.TextBox txtGuid;
-        private System.Windows.Forms.Button btnname;
         private System.Windows.Forms.Label lblname;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Button btnphone;
         private System.Windows.Forms.Label lblphone;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Button btnemail;
         private System.Windows.Forms.Label lblemail;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Button btnaddress;
         private System.Windows.Forms.Label lbladdress;
         private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.Button btnzip;
         private System.Windows.Forms.Label lblzip;
         private System.Windows.Forms.TextBox txtZip;
-        private System.Windows.Forms.Button btnregion;
         private System.Windows.Forms.Label lblregion;
         private System.Windows.Forms.TextBox txtRegion;
-        private System.Windows.Forms.Button btncountry;
         private System.Windows.Forms.Label lblcountry;
         private System.Windows.Forms.TextBox txtCountry;
+        private System.Windows.Forms.Button btnAddMember;
+        private System.Windows.Forms.Button btnDeleteMember;
+        private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.Button btnSave;
     }
 }
