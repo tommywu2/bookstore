@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.performanceCounter1 = new System.Diagnostics.PerformanceCounter();
             this.lblStock = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -52,7 +51,6 @@
             this.lblIsbn = new System.Windows.Forms.Label();
             this.txtIsbn = new System.Windows.Forms.TextBox();
             this.btnAddBook = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStock
@@ -306,8 +304,7 @@
             this.Controls.Add(this.lblIsbn);
             this.Controls.Add(this.txtIsbn);
             this.Name = "AddBook";
-            this.Text = "Add Book";
-            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
+            this.Text = "AddBook";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,7 +312,6 @@
 
         #endregion
 
-        private System.Diagnostics.PerformanceCounter performanceCounter1;
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label lblPrice;

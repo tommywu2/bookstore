@@ -17,7 +17,7 @@ namespace bookstore
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Books());
-            Application.Run(new members());
+            Application.Run(new Members());
         }
     }
 }

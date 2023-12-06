@@ -1,6 +1,6 @@
 ﻿namespace bookstore
 {
-    partial class members
+    partial class Members
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(members));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Members));
             this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.lblguid = new System.Windows.Forms.Label();
             this.txtGuid = new System.Windows.Forms.TextBox();

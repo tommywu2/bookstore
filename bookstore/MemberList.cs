@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace bookstore
 {
-    public partial class members : Form
+    public partial class Members : Form
     {
         string selectedID;
-        public members()
+        public Members()
         {
             InitializeComponent();
         }
@@ -199,21 +199,18 @@ namespace bookstore
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
-            using (AddBook addNewBook = new AddBook())
+            using (AddMember addMember = new AddMember())
             {
-                if (addNewBook.ShowDialog() == DialogResult.OK)
+                if (addMember.ShowDialog() == DialogResult.OK)
                 {
-                    string ISBN = addNewBook.ISBN;
-                    string BookTitle = addNewBook.BookTitle;
-                    string BookAuthor = addNewBook.BookAuthor;
-                    string BookGenre = addNewBook.BookGenre;
-                    string BookCoverType = addNewBook.BookCoverType;
-                    string YearOfPublication = addNewBook.YearOfPublication;
-                    string Publisher = addNewBook.Publisher;
-                    string Stock = addNewBook.Stock;
-                    string Price = addNewBook.Price;
-                    string Pages = addNewBook.Pages;
-                    string Fiction = addNewBook.Fiction;
+                    string GUID = addMember.GUID;
+                    string Name = addMember.Name;
+                    string Phone = addMember.Phone;
+                    string Email = addMember.Email;
+                    string Address = addMember.Address;
+                    string Zip = addMember.Zip;
+                    string Region = addMember.Region;
+                    string Country = addMember.Country;
 
                     //connect to the database
                     SQLiteConnection sqlConnection = new SQLiteConnection();
@@ -224,17 +221,17 @@ namespace bookstore
                     sqlCommand.Connection = sqlConnection;
                     sqlCommand.CommandType = CommandType.Text;
 
-                    sqlCommand.Parameters.AddWithValue("@GUID", ISBN);
-                    sqlCommand.Parameters.AddWithValue("@Name", BookTitle);
-                    sqlCommand.Parameters.AddWithValue("@Phone", BookAuthor);
-                    sqlCommand.Parameters.AddWithValue("@Email", BookGenre);
-                    sqlCommand.Parameters.AddWithValue("@Address", BookCoverType);
-                    sqlCommand.Parameters.AddWithValue("@Zip", YearOfPublication);
-                    sqlCommand.Parameters.AddWithValue("@Region", Publisher);
-                    sqlCommand.Parameters.AddWithValue("@Country", Stock);
+                    sqlCommand.CommandText = "INSERT into books (guid, name, phone, email, address, postalZip, region, country) Values (@GUID, @Name, @Phone, @Email, @Address, @Zip, @Region, @Country";
+                    sqlCommand.Parameters.AddWithValue("@GUID", GUID);
+                    sqlCommand.Parameters.AddWithValue("@Name", Name);
+                    sqlCommand.Parameters.AddWithValue("@Phone", Phone);
+                    sqlCommand.Parameters.AddWithValue("@Email", Email);
+                    sqlCommand.Parameters.AddWithValue("@Address", Address);
+                    sqlCommand.Parameters.AddWithValue("@Zip", Zip);
+                    sqlCommand.Parameters.AddWithValue("@Region", Region);
+                    sqlCommand.Parameters.AddWithValue("@Country", Country);
 
-                    sqlCommand.CommandText = "INSERT into books (guild, name, phone, email, address, postalZip, region, country) Values (@GUID, @Name, @Phone, @Email, @Address, @Zip, @Region, @Country";
-
+                    
                     sqlConnection.Open();
                     sqlCommand.ExecuteNonQuery();
                     sqlConnection.Close();
