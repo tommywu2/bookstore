@@ -16,7 +16,6 @@ namespace bookstore
 {
     public partial class AddMember : Form
     {
-
         public string GUID { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
