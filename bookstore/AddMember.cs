@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -29,8 +30,7 @@ namespace bookstore
         {
             InitializeComponent();
         }
-
-        private void btnAddBook_Click(object sender, EventArgs e)
+        private void btnAddMember_Click(object sender, EventArgs e)
         {
             GUID = txtGuid.Text;
             Name = txtName.Text;
@@ -44,5 +44,6 @@ namespace bookstore
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
     }
 }

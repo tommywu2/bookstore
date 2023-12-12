@@ -81,7 +81,7 @@ namespace bookstore
                 txtPhone.Text = dataTable.Rows[0]["Phone"].ToString();
                 txtEmail.Text = dataTable.Rows[0]["Email"].ToString();
                 txtAddress.Text = dataTable.Rows[0]["Address"].ToString();
-                txtZip.Text = dataTable.Rows[0]["Zip"].ToString();
+                txtZip.Text = dataTable.Rows[0]["postalZip"].ToString();
                 txtRegion.Text = dataTable.Rows[0]["Region"].ToString();
                 txtCountry.Text = dataTable.Rows[0]["Country"].ToString();
 
@@ -221,7 +221,7 @@ namespace bookstore
                     sqlCommand.Connection = sqlConnection;
                     sqlCommand.CommandType = CommandType.Text;
 
-                    sqlCommand.CommandText = "INSERT into books (guid, name, phone, email, address, postalZip, region, country) Values (@GUID, @Name, @Phone, @Email, @Address, @Zip, @Region, @Country";
+                    sqlCommand.CommandText = "INSERT into data (guid, name, phone, email, address, postalZip, region, country) Values (@GUID, @Name, @Phone, @Email, @Address, @Zip, @Region, @Country)";
                     sqlCommand.Parameters.AddWithValue("@GUID", GUID);
                     sqlCommand.Parameters.AddWithValue("@Name", Name);
                     sqlCommand.Parameters.AddWithValue("@Phone", Phone);

@@ -244,7 +244,7 @@ namespace bookstore
                     sqlCommand.Connection = sqlConnection;
                     sqlCommand.CommandType = CommandType.Text;
 
-                    sqlCommand.CommandText = "INSERT into books (isbn, title, author, genre, coverType, pubYear, publisher, stock, price, pages, fiction) Values (@ISBN, @Title, @Author, @Genre, @CoverType, @PubYear, @Publisher, @Stock, @Price, @Pages, @Fiction";
+                    sqlCommand.CommandText = "INSERT into books (isbn, title, author, genre, coverType, pubYear, publisher, stock, price, pages, fiction) Values (@ISBN, @Title, @Author, @Genre, @CoverType, @PubYear, @Publisher, @Stock, @Price, @Pages, @Fiction)";
 
                     sqlCommand.Parameters.AddWithValue("@ISBN", ISBN);
                     sqlCommand.Parameters.AddWithValue("@Title", Title);
